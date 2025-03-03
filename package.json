@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-    "scripts": {
-      "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions/*.ts --format progress-bar ./tests/ui/features/*.feature"
-    },
+  "scripts": {
+    "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions/*.ts --format progress-bar ./tests/ui/features/*.feature && node generateReport.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cucumber/cucumber": "^10.8.0",
-    "@playwright/test": "^1.45.3",
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.50.1",
+    "allure-playwright": "^3.2.0",
+    "cucumber": "^6.0.7",
+    "cucumber-html-reporter": "^7.2.0",
+    "cucumber-playwright": "^1.2.1",
+    "json2html": "^0.0.8",
     "playwright": "^1.45.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"

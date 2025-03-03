@@ -32,9 +32,9 @@ pipeline {
         stage('Publish Results') {
             steps {
                 publishHTML(target: [
-                    reportDir: 'playwright-report',
-                    reportFiles: 'index.html',
-                    reportName: 'Playwright Report'
+                    reportDir: 'reports',
+                    reportFiles: 'cucumber_report.html',
+                    reportName: 'Cucumber Test Report'
                 ])
             }
         }
@@ -42,7 +42,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'playwright-report/**/*', fingerprint: true
+            archiveArtifacts artifacts: 'reports/cucumber_report.html', fingerprint: true
         }
     }
 }
