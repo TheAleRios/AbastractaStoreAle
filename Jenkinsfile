@@ -12,20 +12,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/TheAleRios/AbastractaStoreAle'  // REPO CHANGE
+                git 'https://github.com/TheAleRios/AbastractaStoreAle' 
             }
         }
 
         stage('Install dependencies') {
             steps {
-                sh 'npm ci'  
-                sh 'npx playwright install'  
+                bat 'npm ci'  
+                bat 'npx playwright install'  
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'npm run test'  
+                bat 'npm run test'  
             }
         }
 
