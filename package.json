@@ -1,0 +1,22 @@
+{
+  "name": "abstracta-ui-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "scripts": {
+      "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions/*.ts --format progress-bar ./tests/ui/features/*.feature"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "@playwright/test": "^1.45.3",
+    "playwright": "^1.45.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
