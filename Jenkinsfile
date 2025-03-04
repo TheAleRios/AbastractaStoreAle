@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/TheAleRios/AbastractaStoreAle'
+                git branch: 'main', url: 'https://github.com/TheAleRios/AbastractaStoreAle'
             }
         }
 
