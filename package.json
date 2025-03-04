@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions/*.ts --format progress-bar ./tests/ui/features/*.feature && node generateReport.js"
+    "test": "cucumber-js --require-module ts-node/register --require ./tests/ui/support/hooks.ts --require ./tests/ui/step_definitions/*.ts --format progress-bar ./tests/ui/features/*.feature",
+    "generateReport": "node generateReport.js"
   },
   "keywords": [],
   "author": "",
