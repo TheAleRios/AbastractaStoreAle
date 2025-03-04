@@ -1,0 +1,170 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "abstracta-store-page;add-and-remove-an-item-from-the-abstracta-store-page",
+        "keyword": "Scenario Outline",
+        "line": 17,
+        "name": "Add and remove an item from the Abstracta store page",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 284292100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "user goes to the Abstracta store page",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6441264100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "the user enters \"iPhone\" on the searchbar",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 55114100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "user clicks on search button",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 337563599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "user selects the option 1",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 395312200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "user adds the product to the shopping cart",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21742411899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "user clicks on the shopping cart button",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:38"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67729800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "user clicks on the view shopping card button",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1661218999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "\"iPhone\" should be on column \"Product Name\" in the shopping cart",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 59387399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "user clicks on remove item from the shopping cart",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:63"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67832499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "shopping card should be empty",
+            "match": {
+              "location": "tests\\ui\\step_definitions\\StoreHomePage.steps.ts:67"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 607805500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 56952599
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "abstracta-store-page",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Abstracta store page",
+    "tags": [],
+    "uri": "tests\\ui\\features\\AbstractaStorePage.feature"
+  }
+]
