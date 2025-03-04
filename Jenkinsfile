@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     tools {
         nodejs "Node 18"
     }
@@ -22,39 +21,29 @@ pipeline {
                 bat 'npx playwright install'
             }
         }
+        
+        stage('Clean Reports Directory') {
+     steps {
+        bat 'del /Q reports\\*.*'
+         }
+            }
 
         stage('Run Tests') {
             steps {
                 bat 'npm run test'
             }
         }
-
-        stage('Generate Report') {
-            steps {
-                bat 'npm run generateReport'
-                bat 'dir reports'
-            }
-        }
-
-        stage('Publish Results') {
-            steps {
-                script {    
-                        publishHTML(target: [
-                            reportDir: 'reports',
-                            reportFiles: 'cucumber_report.html',
-                            reportName: 'Cucumber Test Report',
-                            allowMissing: true
-                        ])
-                }
-            }
-        }
     }
 
     post {
-        always {
-            script {
-                    archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
+    always {
+        script {
+            if (fileExists('reports/cucumber-report.json')) {
+                cucumber 'reports/cucumber-report.json'
+            } else {
+                echo "Cucumber JSON not found"
             }
         }
     }
+}
 }

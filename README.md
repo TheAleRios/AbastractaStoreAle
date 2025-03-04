@@ -75,31 +75,20 @@ This repository demonstrates how to set up and run end-to-end tests using Cucumb
 
 ## CI/CD Integration
 
-When integrating with Jenkins or other CI/CD tools:
+When integrating with Jenkins or other CI/CD tools(ensure cucumber report plugin is installed on jenkins):
 1. Publish HTML Reports:
-Publish HTML Reports:
-```bash
-   stage('Publish Results') {
-    steps {
-        publishHTML(target: [
-            reportDir: 'reports',
-            reportFiles: 'cucumber_report.html',
-            reportName: 'Cucumber Test Report'
-        ])
-    }
-}
-
-   ```
-
-1. Archive Artifacts:
-Ensure the report is archived for later access:
 ```bash
    post {
     always {
-        archiveArtifacts artifacts: 'reports/cucumber_report.html', fingerprint: true
+        script {
+            if (fileExists('reports/cucumber-report.json')) {
+                cucumber 'reports/cucumber-report.json'
+            } else {
+                echo "Cucumber JSON not found"
+            }
+        }
     }
-}
-
+   }
    ```
 This configuration saves the report as a build artifact in Jenkins.
 
@@ -130,9 +119,18 @@ After the test completes, the user can run:
    ```
 Test execution reports are generated in the ./reports directory. You can open the cucumber_report.html file in your browser to view a detailed summary of the results.
 
-Report examples:
-![Report image 1](./reports/report_01.png)
-![Report image 2](./reports/report_02.png)
+- Report examples:
+![Report image 1](./reports/examples/report_01.png)
+![Report image 2](./reports/examples/report_02.png)
+
+## Jenkins Reports
+- Using cucumber report plugin on the Jenkins pipeline can create html report that will be available on the Jenkins pipeline dashboard:
+![Cucumber report image 1](./reports/examples/cucumber_report_01.png)
+
+- Report statistics can be viewed on the cucumber report section:
+![Cucumber report image 2](./reports/examples/cucumber_report_02.png)
+![Cucumber report image 3](./reports/examples/cucumber_report_03.png)
+![Cucumber report image 4](./reports/examples/cucumber_report_04.png)
 
 Feel free to contribute to this framework or report issues via the repository's issue tracker.
 
