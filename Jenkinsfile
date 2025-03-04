@@ -25,24 +25,42 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'npm run test'  
+                bat 'npm run test'
+                bat 'dir reports'
             }
         }
 
         stage('Publish Results') {
             steps {
+                script {
+            def reportFile = 'reports/cucumber_report.html'
+            if (fileExists(reportFile)) {
+                echo "Report file found: ${reportFile}"
                 publishHTML(target: [
                     reportDir: 'reports',
                     reportFiles: 'cucumber_report.html',
-                    reportName: 'Cucumber Test Report'
+                    reportName: 'Cucumber Test Report',
+                    allowMissing: true
                 ])
+            } else {
+                echo "Report file not found: ${reportFile}"
+                error "No report file found: ${reportFile}"
+            }
             }
         }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
+           script {
+            def files = findFiles(glob: 'reports/*.html')
+            if (files.length > 0) {
+                echo "Found files: ${files}"
+                archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
+            } else {
+                echo "No files found with 'reports/*.html' patron"
+            }
+        }
         }
     }
 }
