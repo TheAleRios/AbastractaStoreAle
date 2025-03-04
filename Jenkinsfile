@@ -42,7 +42,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'reports/cucumber_report.html', fingerprint: true
+            archiveArtifacts artifacts: 'reports/*.html', fingerprint: true
         }
     }
 }
