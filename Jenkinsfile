@@ -26,6 +26,12 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat 'npm run test'
+            }
+        }
+
+        stage('Generate Report') {
+            steps {
+                bat 'npm run generateReport'
                 bat 'dir reports'
             }
         }
